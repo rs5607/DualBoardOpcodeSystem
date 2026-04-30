@@ -1,11 +1,16 @@
 # DualBoardOpcodeSystem
 Opcode system between Basys 3 and Zedboard utilizing SPI and UART
 
-Zed to Basys: opcode = [8 bits] = [operation][destination]
-
-Basys to Zed: Z input = [12 bits] = [result][dest]
-	                                  8 bits   4 bits
-
+Zed to Basys: 
+```
+opcode = [8 bits] = [operation][destination]
+```
+Basys to Zed: 
+```
+Z input = [12 bits] = [result][dest]
+                      8 bits   4 bits
+```
+```
 operations:
 0000:none
 0001:display(1 operand)
@@ -23,10 +28,10 @@ operations:
 1101: None
 1110:flash
 1111:easter egg
-
+```
 Destination:
 dest = [Send Method Bit][board bit][display selection bits]
-
+```
 UART:
 0000:none(hide operands)
 0001:leds
@@ -36,7 +41,8 @@ UART:
 0101:Z leds
 0110:Z SSD
 0111:Z both
-
+```
+```
 SPI:
 1000:none(hide operands)
 1001:leds
@@ -46,5 +52,5 @@ SPI:
 1101:Z leds
 1110:Z SSD
 1111:Z both
-
+```
 Center Button starts send from Zed to Basys
